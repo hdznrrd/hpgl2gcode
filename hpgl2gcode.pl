@@ -13,14 +13,15 @@ use Switch;
 ## CONFIGURATION
 
 # Z positions in mm
-my $PEN_DOWN_Z="-2";
+my $PEN_DOWN_Z="-1";
 my $PEN_UP_Z="5";
 
 # feed rates in mm/min
 my $FEED_RATE_XY="1200";
 my $FEED_RATE_Z="900";
 
-
+#my $SCALE=3.614;
+my $SCALE=1.0;
 
 ## STATE TRACKING FOR OPTIMIZATION
 my $STATE__PEN_IS_UP=1;
@@ -86,7 +87,7 @@ sub transmute_pen_down() {
 # coordinate conversion helper
 # HPGL units are 25um aka 40 units per mm
 sub hpgl2mm() {
-	return ((shift) / 40.0);
+	return ((shift) / 40.0) * $SCALE;
 }
 
 ## GCODE OUTPUT FUNCTIONS
