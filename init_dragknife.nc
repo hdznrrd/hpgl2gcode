@@ -1,4 +1,3 @@
-%
 (init)
 G00 (rapid)
 G21 (use mm)
